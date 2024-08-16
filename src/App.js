@@ -6,7 +6,9 @@ import RootNavigator from "navigation/RootNavigator";
 function App() {
 	return (
 		<Router>
-			<RootNavigator />
+			<div className="flex justify-center items-center min-w-min min-h-screen">
+				<RootNavigator />
+			</div>
 		</Router>
 	);
 }
