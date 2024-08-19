@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 // BottomNavigation
 import BottomNavigation from "@mui/material/BottomNavigation";
@@ -10,9 +10,11 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 
 const DashboardLayout = () => {
 	const [value, setValue] = React.useState("calendar");
-
+	const navigate = useNavigate();
+	console.log(value);
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
+		navigate(newValue);
 	};
 
 	return (
@@ -25,17 +27,17 @@ const DashboardLayout = () => {
 			<BottomNavigation value={value} onChange={handleChange}>
 				<BottomNavigationAction
 					label="Calendar"
-					value="calendar"
+					value="/calendar"
 					icon={<DateRangeIcon />}
 				/>
 				<BottomNavigationAction
 					label="Routines"
-					value="routines"
+					value="/routines"
 					icon={<LayersIcon />}
 				/>
 				<BottomNavigationAction
 					label="Account"
-					value="account"
+					value="/account"
 					icon={<AccountBoxIcon />}
 				/>
 			</BottomNavigation>
